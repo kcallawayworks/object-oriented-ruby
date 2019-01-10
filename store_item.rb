@@ -10,6 +10,7 @@ class SuckerStore
     @cost = cost
   end
 
+#reader methods are name color cost - writer is print_info
   def name
     @name
   end
@@ -60,3 +61,6 @@ lolly6.print_info
 # - Create a hash in irb where both the keys and values are symbols. Which syntax do you prefer? (edited) 
 
 # I prefer the symbol method
+
+
+# Everything in Ruby is an object. All objects have an identity; they can also hold state and manifest behaviour by responding to messages. ... A string is an example of a Ruby object. Each string object has its own identity exposed through methods like object_id, == and class .

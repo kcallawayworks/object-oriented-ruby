@@ -1,12 +1,4 @@
-# dani [12:56 PM]
-# Exercise:
-# Create a new file in your object-oriented-ruby folder called inheritance_example.rb and open it in Sublime. - done
-# Copy the Car and Bicycle class into your file: https://gist.github.com/peterxjang/e9b69b4de36b2c41ef4b
-# Use inheritance to DRY up the classes. Note - a car is NOT in a type of bicycle, and a bicycle is NOT a type of car!
-# To test it, create a bicycle and car instance from your newly modified classes (you can create them at the bottom of your file). First, have them accelerate. Then, make sure a bike can “Ring ring!” and a car "Beeeeeeep!"
-# Bonus: Read more about inheritance and object hierarchy in Ruby here: https://www.leighhalliday.com/object-hierarchy-in-ruby (edited) 
-
-class Car
+class Vehicle
   def initialize
     @speed = 0
     @direction = 'north'
@@ -22,6 +14,16 @@ class Car
 
   def turn(new_direction)
     @direction = new_direction
+  end
+end
+
+class Car < Vehicle
+  attr_reader :fuel, :make, :model
+  def initialize(input_options)
+    super()
+    @fuel = input_options[:fuel]
+    @make = input_options[:make]
+    @model = input_options[:model]
   end
 
   def honk_horn
@@ -29,25 +31,23 @@ class Car
   end
 end
 
-class Bike
-  def initialize
-    @speed = 0
-    @direction = 'north'
+class Bike < Vehicle
+  attr_reader :type, :weight
+  def initialize(input_options)
+    super()
+    @type = input_options[:type]
+    @weight = input_options[:weight]
   end
-
-  def brake
-    @speed = 0
-  end
-
-  def accelerate
-    @speed += 10
-  end
-
-  def turn(new_direction)
-    @direction = new_direction
-  end
-
   def ring_bell
     puts "Ring ring!"
   end
 end
+
+bike = Bike.new(type: "Mountain", weight: 23)
+bike.ring_bell
+puts bike.type
+car = Car.new(fuel: "Diesel", make: "Ford", model: "F150")
+car.honk_horn
+puts car.fuel
+
+#Will recreate this exercise with other variables the solution was posted before I could catch up.

@@ -1,0 +1,22 @@
+#hasHes and arrarys are part of ruby data structure
+#represent an employee using an array
+
+employee1 = ["Mo", "Money", "1000000", true]
+employee2 = ["No", "Money", " ", true]
+
+puts employee1[0] + " " + employee1[1] + " makes " + employee1[2].to_s + " a year"
+
+puts "#{employee2(0)} #{employee2[1]} makes #{employee2[2]} a year."
+
+#represent an employee using a has
+
+employee1 = {"f_name" ==> "Mo", "l_name" => "Money", "salary" => "1000000", "active" => "true"}
+employee2 = {"f_name" ==> "No", "l_name" => "Money", "salary" => "1", "active" => "true"}
+
+puts "#{employee2['f_name']} #{employee2['l_name']} makes #{employee2['salary']} a year.
+
+#this when the : are used is the more modern use
+employee1 = {"f_name" => "Mo", "l_name" => "Money", "salary" => "1000000", "active" => "true"}
+employee2 = {"f_name": "No", "l_name": "Money", "salary": "1", "active": "true"}
+
+puts "#{employee2[:'f_name']} #{employee2[:'l_name']} makes #{employee2[:'salary']} a year.
